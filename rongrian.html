@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายการร้องเรียน</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: inherit;
+            display: contents;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+            width: 50px;
+        }
+        .status-undone {
+            color: red;
+        }
+        .status-done {
+            color: green;
+        }
+        .page-container {
+            background-color: white;
+            min-height: 100vh;
+            max-width: 100%; 
+            box-sizing: border-box;
+            display: flex; 
+        }
+        .sidebar {
+            background-color:#2c3e50; 
+            color: white;
+            width: 250px; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: rgb(239, 239, 239);
+            flex-grow: 1; 
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <aside class="sidebar">
+            <h2>หอพักอุสรีลาดกระบัง</h2>
+            <a href="dashboard.html"><i class="fa fa-angle-left"></i> Back</a>
+            <a href="manage_room_types.html"><i class="fas fa-bed"></i> ประเภทห้องพัก</a>
+            <a href="manage_rooms.html"><i class="fas fa-door-open"></i> ห้องพัก</a>
+            <a href="manage_rates.html"><i class="fas fa-tint"></i> เรทน้ำ/ไฟ</a>
+            <a href="manage_tenants.html"><i class="fas fa-users"></i> ผู้เช่า</a>
+            <a href="billing.html"><i class="fas fa-file-invoice"></i> ออกบิล</a>
+            <a href="payments.html"><i class="fas fa-money-check"></i> ชำระเงิน</a>
+            <a href="checkout.html"><i class="fas fa-sign-out-alt"></i> ย้ายออก</a>
+            <a href="rongrian.html"><i class="fas fa-sign-out-alt"></i> แจ้งร้องเรียน</a>
+        </aside>
+    <div class="container">
+        <h1>รายการร้องเรียน</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>หัวข้อ</th>
+                    <th>รายละเอียด</th>
+                    <th>ผู้ร้องเรียน</th>
+                    <th>วันที่ร้องเรียน</th>
+                    <th>สถานะ</th>
+                </tr>
+            </thead>
+            <tbody id="complaint-list">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function fetchComplaints() {
+            try {
+                const response = await fetch('/api/get_complaints'); // API endpoint สำหรับดึงข้อมูล
+                const data = await response.json();
+                displayComplaints(data);
+            } catch (error) {
+                console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", error);
+            }
+        }
+
+        function displayComplaints(complaints) {
+            const complaintList = document.getElementById('complaint-list');
+            complaintList.innerHTML = ''; // ล้างข้อมูลเก่า
+
+            complaints.forEach(complaint => {
+                const row = complaintList.insertRow();
+                const topicCell = row.insertCell();
+                const detailsCell = row.insertCell();
+                const nameCell = row.insertCell();
+                const dateCell = row.insertCell();
+                const statusCell = row.insertCell();
+
+                topicCell.textContent = complaint.topic;
+                detailsCell.textContent = complaint.details;
+                nameCell.textContent = complaint.name || '-';
+                const formattedDate = new Date(complaint.date).toLocaleDateString() + ' ' + new Date(complaint.date).toLocaleTimeString();
+                dateCell.textContent = formattedDate;
+
+                const statusClass = complaint.status === 'ดำเนินการแล้ว' ? 'status-done' : 'status-undone';
+                statusCell.textContent = complaint.status;
+                statusCell.classList.add(statusClass);
+            });
+        }
+
+        // โหลดข้อมูลเมื่อหน้าเว็บโหลดเสร็จ
+        window.onload = fetchComplaints;
+    </script>
+</body>
+</html>

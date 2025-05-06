@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จัดการประเภทห้องพัก</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="page-container">
+    <aside class="sidebar">
+      <h2>หอพักอุสรีลาดกระบัง</h2>
+      <a href="dashboard.html"><i class="fa fa-angle-left"></i> Back</a>
+      <a href="manage_room_types.html"><i class="fas fa-bed"></i> ประเภทห้องพัก</a>
+      <a href="manage_rooms.html"><i class="fas fa-door-open"></i> ห้องพัก</a>
+      <a href="manage_rates.html"><i class="fas fa-tint"></i> เรทน้ำ/ไฟ</a>
+      <a href="manage_tenants.html"><i class="fas fa-users"></i> ผู้เช่า</a>
+      <a href="billing.html"><i class="fas fa-file-invoice"></i> ออกบิล</a>
+      <a href="payments.html"><i class="fas fa-money-check"></i> ชำระเงิน</a>
+      <a href="checkout.html"><i class="fas fa-sign-out-alt"></i> ย้ายออก</a>
+      <a href="rongrian.html"><i class="fas fa-sign-out-alt"></i> แจ้งร้องเรียน</a>
+    </aside>
+
+    <main class="main-content">
+      <h1 class="center-title">จัดการประเภทห้องพัก</h1>
+      <div class="card">
+        <h3>เพิ่มประเภทห้องพัก</h3>
+        <form id="addRoomTypeForm" class="form-inline">
+          <input type="text" id="roomTypeName" placeholder="ชื่อประเภทห้องพัก" required>
+          <input type="number" id="roomTypePrice" placeholder="ราคา/เดือน" required>
+          <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> เพิ่ม</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>รายการประเภทห้องพัก</h3>
+        <table id="roomTypeTable">
+          <thead>
+            <tr>
+              <th>ชื่อประเภท</th>
+              <th>ราคา/เดือน</th>
+              <th>แก้ไข</th>
+              <th>ลบ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- mock data -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

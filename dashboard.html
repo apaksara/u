@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard ระบบหอพัก</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>หอพักอุสรีลาดกระบัง</h2>
+    <a href="manage_room_types.html"><i class="fas fa-bed"></i> ประเภทห้องพัก</a>
+    <a href="manage_rooms.html"><i class="fas fa-door-open"></i> ห้องพัก</a>
+    <a href="manage_rates.html"><i class="fas fa-tint"></i> เรทค่าน้ำ/ไฟ</a>
+    <a href="manage_tenants.html"><i class="fas fa-users"></i> ผู้เช่า</a>
+    <a href="billing.html"><i class="fas fa-file-invoice-dollar"></i> ออกบิล</a>
+    <a href="payments.html"><i class="fas fa-money-check-alt"></i> ชำระเงิน</a>
+    <a href="checkout.html"><i class="fas fa-sign-out-alt"></i> ย้ายออก</a>
+    <a href="rongrian.html"><i class="fas fa-sign-out-alt"></i> แจ้งร้องเรียน</a>
+    <button id="logoutBtn">ออกจากระบบ</button>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>ยินดีต้อนรับ!</h1>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-bed fa-2x"></i>
+        <h3>ประเภทห้องพัก</h3>
+        <p><a href="manage_room_types.html">จัดการ</a></p>
+      </div>
+      <div class="card">
+        <i class="fas fa-door-open fa-2x"></i>
+        <h3>ห้องพัก</h3>
+        <p><a href="manage_rooms.html">จัดการ</a></p>
+      </div>
+      <div class="card">
+        <i class="fas fa-tint fa-2x"></i>
+        <h3>เรทค่าน้ำ/ไฟ</h3>
+        <p><a href="manage_rates.html">จัดการ</a></p>
+      </div>
+      <div class="card">
+        <i class="fas fa-users fa-2x"></i>
+        <h3>ผู้เช่า</h3>
+        <p><a href="manage_tenants.html">จัดการ</a></p>
+      </div>
+      <div class="card">
+        <i class="fas fa-file-invoice-dollar fa-2x"></i>
+        <h3>ออกบิล</h3>
+        <p><a href="billing.html">จัดการ</a></p>
+      </div>
+      <div class="card">
+        <i class="fas fa-money-check-alt fa-2x"></i>
+        <h3>ชำระเงิน</h3>
+        <p><a href="payments.html">จัดการ</a></p>
+      </div>
+      <div class="card">
+        <i class="fas fa-sign-out-alt fa-2x"></i>
+        <h3>ย้ายออก</h3>
+        <p><a href="checkout.html">จัดการ</a></p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-wrench fa-2x"></i>
+        <h3>ร้องเรียน/แจ้งซ่อม</h3>
+        <p><a href="rongrian.html">จัดการ</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จัดการห้องพัก</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="page-container">
+    <aside class="sidebar">
+      <h2>หอพักอุสรีลาดกระบัง</h2>
+      <a href="dashboard.html"><i class="fa fa-angle-left"></i> Back</a>
+      <a href="manage_room_types.html"><i class="fas fa-bed"></i> ประเภทห้องพัก</a>
+      <a href="manage_rooms.html"><i class="fas fa-door-open"></i> ห้องพัก</a>
+      <a href="manage_rates.html"><i class="fas fa-tint"></i> เรทน้ำ/ไฟ</a>
+      <a href="manage_tenants.html"><i class="fas fa-users"></i> ผู้เช่า</a>
+      <a href="billing.html"><i class="fas fa-file-invoice"></i> ออกบิล</a>
+      <a href="payments.html"><i class="fas fa-money-check"></i> ชำระเงิน</a>
+      <a href="checkout.html"><i class="fas fa-sign-out-alt"></i> ย้ายออก</a>
+      <a href="rongrian.html"><i class="fas fa-sign-out-alt"></i> แจ้งร้องเรียน</a>
+    </aside>
+
+    <main class="main-content">
+      <h1 class="center-title">จัดการห้องพัก</h1>
+
+      <div class="card">
+        <h3>เพิ่มห้องพัก</h3>
+        <form id="addRoomForm" class="form-inline">
+          <input type="text" id="roomNumber" placeholder="หมายเลขห้อง" required>
+          <input type="text" id="roomType" placeholder="ประเภทห้อง (Standard, Deluxe)" required>
+          <select id="roomStatus" required>
+            <option value="">เลือกสถานะ</option>
+            <option value="ว่าง">ว่าง</option>
+            <option value="ไม่ว่าง">ไม่ว่าง</option>
+          </select>
+          <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> เพิ่ม</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>รายการห้องพัก</h3>
+        <table id="roomTable">
+          <thead>
+            <tr>
+              <th>หมายเลขห้อง</th>
+              <th>ประเภทห้อง</th>
+              <th>สถานะ</th>
+              <th>แก้ไข</th>
+              <th>ลบ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- mock data -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

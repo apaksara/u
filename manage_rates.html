@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จัดการเรทค่าน้ำ/ค่าไฟ/ส่วนกลาง/ค่าจอดรถ</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="page-container">
+    <aside class="sidebar">
+      <h2>หอพักอุสรีลาดกระบัง</h2>
+      <a href="dashboard.html"><i class="fa fa-angle-left"></i> Back</a>
+      <a href="manage_room_types.html"><i class="fas fa-bed"></i> ประเภทห้องพัก</a>
+      <a href="manage_rooms.html"><i class="fas fa-door-open"></i> ห้องพัก</a>
+      <a href="manage_rates.html"><i class="fas fa-tint"></i> เรทน้ำ/ไฟ</a>
+      <a href="manage_tenants.html"><i class="fas fa-users"></i> ผู้เช่า</a>
+      <a href="billing.html"><i class="fas fa-file-invoice"></i> ออกบิล</a>
+      <a href="payments.html"><i class="fas fa-money-check"></i> ชำระเงิน</a>
+      <a href="checkout.html"><i class="fas fa-sign-out-alt"></i> ย้ายออก</a>
+      <a href="rongrian.html"><i class="fas fa-sign-out-alt"></i> แจ้งร้องเรียน</a>
+    </aside>
+
+    <main class="main-content">
+      <h1 class="center-title">จัดการเรทค่าน้ำ/ค่าไฟ/ส่วนกลาง/ค่าจอดรถ</h1>
+
+      <div class="card">
+        <h3>ตั้งค่าราคาเรท</h3>
+        <form id="rateForm" class="form-inline">
+          <input type="number" id="waterRate" placeholder="ค่าน้ำ (บาท/หน่วย)" required>
+          <input type="number" id="electricRate" placeholder="ค่าไฟ (บาท/หน่วย)" required>
+          <input type="number" id="serviceRate" placeholder="ค่าส่วนกลาง (บาท/เดือน)" required>
+          <input type="number" id="parkingRate" placeholder="ค่าจอดรถ (บาท/เดือน)" required>
+          <button type="submit" class="btn-primary">บันทึก</button>
+        </form>  
+        <ul id="currentRates"></ul>
+        
+      </div>
+
+      <div class="card">
+        <h3>เรทปัจจุบัน</h3>
+        <ul id="currentRates">
+          <!-- จะเติมข้อมูลผ่าน script -->
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
